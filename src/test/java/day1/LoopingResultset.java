@@ -21,15 +21,25 @@ public class LoopingResultset {
             //System.out.println("Region Value at this row "+ rs.getString("Region_Name"));
             //Checking if there is next row or not
 
-            while (rs.next()) {
-                System.out.println("Region ID at the row " + rs.getString("Region_ID"));
-                System.out.println("Region Value at this row " + rs.getString("Region_Name"));
 
-            }
+
+//            while (rs.next()) {
+//                System.out.println("Region ID at the row " + rs.getString("Region_ID"));
+//                System.out.println("Job values" + rs.getString("Job_title"));
+//            }
 
             // Create a new ResultSet  by running a different query like
-            // Select * Rows
+            // Select * from Jobs
 
+
+            rs = stm1.executeQuery("select * from jobs");
+
+            while(rs.next()){
+                System.out.print(rs.getString(1)+" : ");
+                System.out.print(rs.getString(2));
+                System.out.println();
+                System.out.println("---------------------------------------");
+            }
 
         } catch (SQLException e) {
             System.out.println("Error occured" + e.getMessage());
