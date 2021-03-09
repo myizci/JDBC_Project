@@ -1,29 +1,16 @@
+package day1;
+
 import java.sql.*;
 
-public class TestConnection {
-
-
-
+public class JDBC_FirstStep {
     public static void main(String[] args) {
 
-        /*
-        host: 3.86.114.200
-        port: 1E
-        username: hr
-        password: hr
-
-        jbdc url AKA connection string
-        syntax:
-        jdbc:vendorName:driverType@YourHost:Port:SID
-        jdbc:oracle:oracle:thin@3.86.114.200:1521:XE
-         */
-
-        String connectionStr ="jdbc:oracle:thin:@3.86.114.200:1521:XE";
+        String url ="jdbc:oracle:thin:@3.86.114.200:1521:XE";
         String username ="hr";
         String password = "hr";
 
         try {
-            Connection conn = DriverManager.getConnection(connectionStr,username,password);
+            Connection conn = DriverManager.getConnection(url,username,password);
             // this way of creating a statement allows us to move forward and backward easily and
             // navigating through the result
             Statement st1 = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
@@ -45,17 +32,11 @@ public class TestConnection {
             System.out.println("FOURTH ROW REGION_NAME IS "+rs.getString("REGION_NAME"));
             rs.next(); // this will move the cursor the location known as -- AFTER LAST
             // BELOW LINE WILL NOT WORK
-           // System.out.println("FIFTH ROW REGION_NAME IS "+rs.getString("REGION_NAME"));
-
-
-
-
-
-
+            // System.out.println("FIFTH ROW REGION_NAME IS "+rs.getString("REGION_NAME"));
 
             System.out.println("Connection SUCCESSFUL");
         } catch (SQLException e) {
-            System.out.println("Connection FAILED"+e.getMessage());
+            System.out.println("Error Occured "+e.getMessage());
 
         }
     }
