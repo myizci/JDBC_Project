@@ -12,7 +12,22 @@ public class ResultSetMetaData_ForColumnInfo {
 
         Connection conn = DriverManager.getConnection(url, username, password);
         Statement stm1 = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs = stm1.executeQuery("select * from regions");
+        ResultSet rs = stm1.executeQuery("select * from countries");
+        // ResultSet ONLY contain the data comes from the query result
+        // It does not have any method to get information about columns
+        // or columns datatype and so on
+        //ResultSetMetaData, which is obtained by ResultSet object contains column information
+
+        ResultSetMetaData resultSetMetaData = rs.getMetaData();
+        // we care about two methods
+        //getColumnCount()
+        //getColumnName or getColumnLabel() -- second one picks up alias
+        System.out.println(resultSetMetaData.getColumnCount());
+        System.out.println(resultSetMetaData.getColumnName(1));
+        System.out.println(resultSetMetaData.getColumnName(2));
+        System.out.println(resultSetMetaData.getColumnName(3));
+
+
 
     }
 }
