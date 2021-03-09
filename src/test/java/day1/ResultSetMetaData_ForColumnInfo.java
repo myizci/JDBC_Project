@@ -27,6 +27,13 @@ public class ResultSetMetaData_ForColumnInfo {
         System.out.println(resultSetMetaData.getColumnName(2));
         System.out.println(resultSetMetaData.getColumnName(3));
 
+        // print out all the column names
+        System.out.println("==================");
+        int columnCount = resultSetMetaData.getColumnCount();
+
+        for(int col=1; col<=columnCount; col++){
+            System.out.println("Column number  "+col +" name : "+resultSetMetaData.getColumnName(col));
+        }
 
 
     }
