@@ -6,17 +6,7 @@ public class TestConnection {
 
     public static void main(String[] args) {
 
-        /*
-        host: 3.86.114.200
-        port: 1E
-        username: hr
-        password: hr
 
-        jbdc url AKA connection string
-        syntax:
-        jdbc:vendorName:driverType@YourHost:Port:SID
-        jdbc:oracle:oracle:thin@3.86.114.200:1521:XE
-         */
 
         String connectionStr ="jdbc:oracle:thin:@3.86.114.200:1521:XE";
         String username ="hr";
@@ -24,15 +14,10 @@ public class TestConnection {
 
         try {
             Connection conn = DriverManager.getConnection(connectionStr,username,password);
-            // this way of creating a statement allows us to move forward and backward easily and
-            // navigating through the result
+
             Statement st1 = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 
             ResultSet rs = st1.executeQuery("SELECT * FROM REGIONS");
-            // In order to access resultset, we need tot know which we row we are at
-            // before entering the first row, the cursor of the resultset is at the location as -- before first
-            //in order to move to next line , we need to call next method of result set
-            //in order to get any colUmn data, we need to call method get string or get Double.... and so on
 
             rs.next();
             // now we are at the first row

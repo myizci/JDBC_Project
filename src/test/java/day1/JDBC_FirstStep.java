@@ -35,6 +35,10 @@ public class JDBC_FirstStep {
             // System.out.println("FIFTH ROW REGION_NAME IS "+rs.getString("REGION_NAME"));
 
             System.out.println("Connection SUCCESSFUL");
+            rs.close();
+            st1.close();
+            conn.close();
+
         } catch (SQLException e) {
             System.out.println("Error Occured "+e.getMessage());
 
