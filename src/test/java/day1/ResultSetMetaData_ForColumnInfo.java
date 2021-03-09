@@ -1,6 +1,8 @@
 package day1;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResultSetMetaData_ForColumnInfo {
     public static void main(String[] args) throws SQLException {
@@ -34,6 +36,19 @@ public class ResultSetMetaData_ForColumnInfo {
         for(int col=1; col<=columnCount; col++){
             System.out.println("Column number  "+col +" name : "+resultSetMetaData.getColumnName(col));
         }
+
+// SAVE ALL COLUMN NAMES INTO A LIST
+
+        List<String> allColumns = new ArrayList<>();
+
+        for(int col =1; col<=columnCount; col++){
+
+            allColumns.add(resultSetMetaData.getColumnName(col));
+        }
+
+        System.out.println("allColumns = " + allColumns);
+
+
 
 
     }
