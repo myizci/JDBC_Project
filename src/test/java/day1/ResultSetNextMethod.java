@@ -24,6 +24,15 @@ public class ResultSetNextMethod {
         // 2. using column INDEX for ResultSet object's getString(column INDEX here)
        // SQL INDEX STARTS WITH 1 !!!!!!!
 
+        //how do you loop backwards from last row till first row
+
+        rs.isAfterLast(); // to make sure that we are at the bottom of the column
+        while(rs.previous()){
+
+            System.out.println("Backward id values : " + rs.getString(1));
+        }
+
+
 
 
 
