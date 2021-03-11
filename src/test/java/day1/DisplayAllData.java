@@ -15,9 +15,9 @@ public class DisplayAllData {
         //How to get move to the last row -->> rs.last()
         // HOw to get current row number -->> rs.getRow()
 
-        rs.last();
+       // rs.last();
 
-        int rowNum = rs.getRow();
+      //  int rowNum = rs.getRow();
         // System.out.print("rowNum = " + rowNum);
         ResultSetMetaData resultSetMetaData = rs.getMetaData();
         int columnCount = resultSetMetaData.getColumnCount();
